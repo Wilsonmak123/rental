@@ -1,0 +1,104 @@
+<!--search.ejs-->
+
+<style>
+.image{
+image-resolution: from-image;
+height:200px;
+width:100%;
+object-fit: cover;
+}  
+ 
+</style>
+
+      </head>
+  <body>
+  
+ <div class="row">
+
+ <% persons.forEach( function(model) { %>
+            <div class="card col-12 col-md-6 col-lg-4" id="div01">
+            <table>
+
+           <tr>  <td><img class="image" src="<%-model.URL %>"  ></td></tr>
+
+
+           <tr><td><h3 style="color:blue"><%-model.title%></h3></td></tr>
+
+          
+           
+             <tr>
+             <td class='list-group-item'>Estate: <%-model.estate %></td>
+             <td class='list-group-item'>Gross Area: <%-model.area %> sq feet</td>
+             <td class='list-group-item'>Rent: $<%-model.rent %></td>
+             </tr>
+       
+
+            </table>    
+
+            </div>
+
+<% }); %>
+
+ <div class="card col-12 col-md-6 col-lg-4" style="border:none">
+<% const current = parseInt(req.query.page) || 1; %>
+
+<nav aria-label="Page navigation example">
+    <ul class="pagination">
+        <li class="page-item">
+            <a class="page-link" href="/person/search/?page=<%= Math.max(current-1, 1) %>">Previous</a>
+        </li>
+
+        <% for (i = 1; i <= count; i++) { %>
+            <li class="page-item">
+                <a class="page-link" href="/person/search/?page=<%= i %>"><%= i %></a>
+            </li>
+        <% } %>
+
+        <li class="page-item">
+            <a class="page-link" href="/person/search/?page=<%= Math.min(current+1, count) %>">Next</a>
+        </li>
+    </ul>
+</nav>
+
+
+    <div><h3>Property Search</h3></div>
+     <form action="/person/search" method="GET" id="main">
+    <div class="form-group">
+     <label>Estate:</label>
+          <select class="form-control custom-select" name="estate">
+                    <option selected>Select estate here</option>
+                    <option>Festival City</option>
+                    <option>Tin Ma Court</option>
+                    <option>City One Shatin</option>
+                </select>
+  </div>
+
+    <div class="form-group"><label for="name">Bedrooms:&nbsp</label><input class="form-control" type="text" id="name" name="bedrooms"> </div>
+    <div>Area (Sq feet):</div>
+      <table>
+       <tr>
+   <td> <div class="form-group"><label for="minArea">Min:&nbsp</label><input class="form-control" type="number" id="" name="minarea" min="0"></div></td>
+   <td> <div class="form-group"><label for="maxArea">Max:&nbsp</label><input class="form-control" type="number" id="numTickets" name="maxarea" max="2000"></div> </td>
+    </tr>
+      </table>
+    <div>Rents (HK$):</div>
+    <table>
+    <tr>
+    <td><div class="form-group"><label for="minRent">Min:&nbsp</label><input class="form-control" type="number" id="" name="minrent" min="0"></div></td>
+    
+   <td> <div class="form-group"><label for="maxRent">Max:&nbsp</label><input class="form-control" type="number" id="" name="maxrent" max="30000"></div> </td>
+    </tr>
+    </table>
+    <button type="submit" class="btn btn-primary">Search</button>
+    </form>
+    </div>
+
+</div>
+
+    <br>
+      <br>
+        <br>
+          <br>
+            <br>
+              <br>
+

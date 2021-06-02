@@ -1,0 +1,116 @@
+
+
+  <strong><h2>Property Create from</h2></strong>
+  <!--onsubmit="sendUpdate(this);return false" method="POST"-->
+<form action="/person/update/<%= person.id %>" method="POST">
+  <div class="row">
+ <div class="col-md-6 col-12">
+   <div class="form-group">
+      <label>Property title:</label>
+      <input type="text" class="form-control" name="Person[title]" value="<%= person.title %>" required=""> 
+  </div>
+    <div class="form-group">
+ <label>Estate</label>
+
+            <select class="form-control custom-select" name="Person[estate]" value="<%= person.estate %>">
+                        <option>Festival City</option>
+                        <option>Tin Ma Court</option>
+                        <option>City One Shatin</option>
+      </select>
+
+</select>
+   
+    </div>
+  <div class="form-group">
+  <label>Gross Area:</label>
+    <input type="number" class="form-control" name="Person[area]" value="<%= person.area %>" min=1   required>
+    </div>
+  <div class="form-group">
+    <label>Rent:</label> 
+    <input type="number" class="form-control" name="Person[rent]" value="<%= person.rent %>" min=1  required>
+    </div>
+</div>
+
+ <div class="col-md-6 col-12">
+   <div class="form-group">
+    <label>Image URL:</label>
+    <input type="url" class="form-control" name="Person[URL]" value="<%= person.URL %>" required> 
+  </div>
+  <div class="form-group">
+    <label>Bedrooms:</label>
+    <input type="number" class="form-control" name="Person[bedrooms]" value="<%= person.bedrooms %>" min=0 required>
+    </div>
+      <div class="form-group">
+    <label>Expected Tenants:</label>
+    <input type="number" class="form-control" name="Person[tenants]" value="<%= person.tenants %>" min=0 required>
+    </div>
+    <!-- <div class="form-group">
+
+ <label>Expected Tenants:</label>
+    <input type="number" class="form-control" name="Person[tenants]" value="<%= person.tenants %> min=1  "required>
+    </div>-->
+  <div class="form-group form-check">
+    <input type="checkbox" class="form-check-input"  name="Person[highlighted]" value="Highlighted" 
+            <% if (person.highlighted === "Highlighted") { %>
+            checked
+            <% }; %>
+        >
+
+      <label>Highlighted Property</label>
+    </div>
+  
+    <button type="submit" class="btn btn-primary" script="alert("Record updated")" >Submit</button>
+
+</div>
+</div>
+
+</form>
+<!--<form action="/person/delete/<%= person.id %>" method="POST" class="deletebutton"></form>-->
+<button class = "btn btn-danger" type="button" onclick="deletePerson('<%= person.id %>')" >Delete</button>
+
+
+
+
+
+
+  
+    <br>
+      <br>
+        <br>
+          <br>
+            <br>
+              <script>
+
+                async function deletePerson(id) {
+
+                var r = confirm("Confirm Delete?");
+
+                if (r) {
+
+                var response = await fetch("/person/" + id, {
+                method: "DELETE",
+                credentials: 'same-origin',
+                });
+
+                //var html = await response.text();
+                // alert(html);
+
+                if (response.ok) {
+                var data = await response.json();
+                //alert(data.message);
+                //window.location = data.url;
+                alert(data.message);
+                //location.reload(true);
+                window.location = data.url;
+                } else {
+                alert(response.status + ": " + response.statusText);
+
+                }
+                }
+
+                };
+
+
+
+              </script>
+

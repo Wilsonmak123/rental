@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+<style>
+
+.image{
+image-resolution: from-image;
+height:112.5px;
+width:150px;
+object-fit: cover;
+}  
+
+</style >
+</head>
+
+<body>
+ <div class="row">
+ <% persons.forEach( function(model) { %>
+            <div class="card col-12 col-md-6" id="div01">
+            <table>
+            
+           <tr><td> <a href="/person/view/<%= model.id %>"><%-model.title%></a></td></tr>
+
+           <tr>
+
+           <td><img class="image" src="<%-model.URL %>"  ></td>
+
+            <td>
+            <ul style="list-style-type:none;">
+             <li class='list-group-item'>Estate: <%-model.estate %></li>
+             <li class='list-group-item'>Gross Area: <%-model.area %> sq feet</li>
+             <li class='list-group-item'>Rent: $<%-model.rent %></li>
+            </ul>
+
+            </td>
+
+            </tr>
+            
+
+            </table>    
+
+            </div>
+
+<% }); %>
+</div>
+
+
+<br>
+
+
+
+
+            
+</body>
+</html>

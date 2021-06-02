@@ -1,0 +1,87 @@
+<!--create.ejs-->
+
+
+      <style>
+
+      .column{
+       width:50%;
+        padding-left: 15px;
+        padding-right: 15px;
+               }
+      </style >
+
+<form action="/person/create" method="POST">
+<div class="row">
+<!--<div class="column">-->
+   <div class="col-md-6 col-12">
+
+   <div class="form-group">
+      <label>Property title:</label>
+      <input type="text" class="form-control" name="Person[title]" required> 
+     </div>
+
+ <div class="form-group">
+    
+                      <label>Estate:</label>
+            <select class="form-control custom-select" name="Person[estate]" required>
+                    <option selected>Select estate here</option>
+                    <option>Festival City</option>
+                    <option>Tin Ma Court</option>
+                    <option>City One Shatin</option>
+                </select>
+
+
+      </select>
+
+
+
+
+        </div>
+
+
+  <div class="form-group">
+  <label>Gross Area:</label>
+    <input type="number" class="form-control" name="Person[area]" min=1 required>
+    </div>
+
+  <div class="form-group">
+    <label>Rent:</label> 
+    <input type="number" class="form-control" name="Person[rent]" min=1 required>
+    </div>
+
+</div>
+
+<div class="col-md-6 col-12">
+
+   <div class="form-group">
+    <label>Image URL:</label>
+    <input type="url" class="form-control" name="Person[URL]" required> 
+  </div>
+
+  <div class="form-group">
+    <label>Bedrooms:</label>
+    <input type="number" class="form-control" name="Person[bedrooms]" min=0 required>
+    </div>
+      <div class="form-group">
+    <label>Expected tenants:</label>
+    <input type="number" class="form-control" name="Person[tenants]" min=0 required="">
+    </div>
+
+
+  <div class="form-group form-check">
+    <input class="form-check-input" type="checkbox"   name="Person[highlighted]" value="Highlighted" id="HighlightedCheck">
+    <label class="form-check-lable pb-3" for="HighlightedCheck">Highlighted Property</label>
+    </div>
+  
+    <button type="submit" class="btn btn-primary">Submit</button>
+
+</div>
+</div>
+
+</form>
+
+
+<br>
+<br>
+
+

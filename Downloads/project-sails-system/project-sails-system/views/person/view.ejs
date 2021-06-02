@@ -1,0 +1,28 @@
+
+  <div class="card p-4">
+<h3 class="card-title"><%= persons.title %></h3>
+<div class="row">
+
+<img src="<%= persons.URL %>" class="col-md-8 col-12" height="300vh"></img>
+  <div class="col-12 col-md-4 pt-0">
+<div class="card"><p class="card-text p-2"><b>Estate: </b><%= persons.estate %></p></div> 
+<div class="card"><p class="card-text p-2"><b>Gross Area: </b><%= persons.area %></p></div>      
+<div class="card"><p class="card-text p-2"><b>Rent: </b><%= persons.rent %></p></div>  
+<div class="card"><p class="card-text p-2"><b>Bedrooms: </b><%= persons.bedrooms %></p></div>
+<div class="card"><p class="card-text p-2"><b>Expected Tenants: </b><%= persons.tenants %></p></div>
+<div class="card"><p class="card-text p-2"><b>Created: </b><%= new Date(persons.createdAt).toLocaleDateString() %>
+</p></div>
+<div class="card"><p class="card-text p-2"><b>Updated: </b><%= new Date(persons.updatedAt).toLocaleDateString() %>
+
+</p>
+</div>
+
+</div>
+
+</div>
+    </div>
+    <br>
+      <br>
+        <br>
+          <br>
+
